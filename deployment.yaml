@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: nodejs-app
-          image: anamikavijayan/carp1:latest
+          image: anamikavijayan/node-app:latest
           ports:
             - containerPort: 3000
           livenessProbe:
