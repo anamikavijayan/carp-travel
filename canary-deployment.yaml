@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: nodejs-app
-          image: your-dockerhub-username/node-app:canary
+          image: anamikavijayan/node-app:canary
           ports:
             - containerPort: 3000
