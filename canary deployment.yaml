@@ -2,23 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodejs-app-canary
-  labels:
-    app: nodejs-app
-    track: canary
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: nodejs-app
-      track: canary
+      version: canary
   template:
     metadata:
       labels:
         app: nodejs-app
-        track: canary
+        version: canary
     spec:
       containers:
         - name: nodejs-app
-          image: anamikavijayan/carp1:canary
+          image: your-dockerhub-username/node-app:canary
           ports:
             - containerPort: 3000
