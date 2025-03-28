@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nodejs-app
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: nodejs-app
@@ -13,22 +13,13 @@ spec:
         app: nodejs-app
     spec:
       containers:
-        - name: nodejs-app
-          image: anamikavijayan/node-app:latest
-          ports:
-            - containerPort: 3000
-          livenessProbe:
-            httpGet:
-              path: /api/health   # Make sure this route exists in your app
-              port: 3000
-            initialDelaySeconds: 10
-            periodSeconds: 15
-          readinessProbe:
-            httpGet:
-              path: /api/health   # Make sure this route exists in your app
-              port: 3000
-            initialDelaySeconds: 5
-            periodSeconds: 10
+      - name: nodejs-app
+        image: your-dockerhub-username/your-nodejs-image:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
 
             
 
